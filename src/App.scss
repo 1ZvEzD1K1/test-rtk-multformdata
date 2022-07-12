@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+  font-family: "Nunito", sans-serif;
+}
+
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.wrapper {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+._container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+
+._ibg {
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.global_title {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+//-------------------------------------------------------------
+.header {
+  width: 100%;
+  background: #ffffff;
+
+  &__container {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+
+    .button__container {
+      background: #f4e041;
+      border-radius: 80px;
+      padding: 4px 29px;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    .button__container:hover {
+      background: #ffe302;
+      cursor: pointer;
+    }
+  }
+
+  &__button {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.87);
+    background: none;
+    cursor: pointer;
+  }
+}
+
+//-------------------------------------------------------------
+.main {
+  flex: 1 1 auto;
+  width: 100%;
+  background: #e5e5e5;
+
+  &__intro {
+    background-image: url("./img/main.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .intro {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      &__title {
+        max-width: 380px;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 40px;
+        color: #ffffff;
+        margin: 164px 0 0 0;
+      }
+
+      &__text {
+        max-width: 380px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: #ffffff;
+        margin: 21px 0 0 0;
+      }
+
+      &__buttons {
+        background: #f4e041;
+        border-radius: 80px;
+        padding: 4px 23px;
+        margin: 32px 0 163px 0;
+      }
+
+      &__buttons:hover {
+        background: #ffe302;
+        cursor: pointer;
+      }
+
+      &__button {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: rgba(0, 0, 0, 0.87);
+        background: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__get {
+    .get {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      &__title {
+        margin: 140px 0 0 0;
+      }
+
+      &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 50px -14.5px 0 -14.5px;
+        @media screen and (max-width: 768px) {
+          //justify-content: center;
+        }
+
+        .card {
+          &__wrap {
+            flex: 0 1 33.333%;
+            padding: 14.5px;
+            @media screen and (max-width: 768px) {
+              flex: 0 0 50%;
+            }
+            @media screen and (max-width: 520px) {
+              flex: 0 0 100%;
+            }
+          }
+
+          &__container {
+            background: #ffffff;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 235px;
+            overflow: hidden;
+          }
+
+          &__avatar {
+            border-radius: 50% !important;
+            height: 70px;
+            width: 70px;
+            margin: 20px 0 0 0;
+          }
+
+          &__name {
+            max-width: 242px;
+            margin: 20px 20px 0 20px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            color: rgba(0, 0, 0, 0.87);
+          }
+
+          &__desc {
+            max-width: 242px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            color: rgba(0, 0, 0, 0.87);
+            margin: 0 0 20px 0;
+          }
+        }
+      }
+
+      &__buttons {
+        background: #f4e041;
+        border-radius: 80px;
+        padding: 4px 18px;
+        margin: 50px 0 0px 0;
+      }
+
+      &__buttons:hover {
+        background: #ffe302;
+        cursor: pointer;
+      }
+
+      &__button {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: rgba(0, 0, 0, 0.87);
+        background: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__post {
+    .post {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &__title {
+        margin: 140px 0 0 0;
+        text-align: center;
+      }
+
+      &__form {
+        max-width: 380px;
+        width: 100%;
+        margin: 50px 0 100px 0;
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          &__name {
+            width: 100%;
+
+            input {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              color: #7e7e7e;
+              border: 1px solid #d0cfcf;
+              border-radius: 4px;
+              padding: 14px 0 14px 16px;
+              background: none;
+              //min-height: 54px;
+              width: 100%;
+            }
+          }
+
+          &__mail {
+            width: 100%;
+            margin: 50px 0 0 0;
+
+            input {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              color: #7e7e7e;
+              border: 1px solid #d0cfcf;
+              border-radius: 4px;
+              padding: 14px 0 14px 16px;
+              background: none;
+              //min-height: 54px;
+              width: 100%;
+            }
+          }
+
+          &__number {
+            width: 100%;
+            margin: 50px 0 0 0;
+
+            input {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              color: #7e7e7e;
+              border: 1px solid #d0cfcf;
+              border-radius: 4px;
+              padding: 14px 0 14px 16px;
+              background: none;
+              //min-height: 54px;
+              width: 100%;
+            }
+          }
+
+          &__radio-container {
+            margin: 25px 0 0 0;
+            .radio__text {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              color: rgba(0, 0, 0, 0.87);
+            }
+          }
+
+          &__radio {
+            margin: 7px 0 0 0;
+          }
+
+          &__file {
+            margin: 47px 0 0 0;
+          }
+
+          &__buttons {
+            background: #f4e041;
+            border-radius: 80px;
+            margin: 54px 0 0 0;
+            padding: 4px 23px;
+            max-width: 100px;
+            align-self: center;
+          }
+
+          &__buttons:hover {
+            background: #ffe302;
+            cursor: pointer;
+          }
+
+          &__buttons:disabled {
+            background: #b4b4b4;
+            border-radius: 80px;
+            margin: 54px 0 0 0;
+            padding: 4px 23px;
+            max-width: 100px;
+            align-self: center;
+          }
+
+          &__button {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            color: rgba(0, 0, 0, 0.87);
+            background: none;
+            cursor: pointer;
+          }
+
+          &__button:disabled {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            color: rgba(255, 255, 255, 0.87);
+            background: none;
+          }
+        }
+      }
+    }
+  }
+
+  // &__img {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   top: 0;
+  //   left: 0;
+  // }
+}
+
+//-------------------------------------------------------------
+.footer {
+}
