@@ -7,7 +7,7 @@ export const getUsers = createAsyncThunk(
         try {
             const { page } = getState().users
             const res = await axios.get(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page + 1}&count=10`)
-            console.log("ful", res)
+            //console.log("ful", res)
             return res
         } catch (error) {
             return rejectWithValue(error.message)
@@ -33,13 +33,10 @@ const usersSlice = createSlice({
             state.error = null;
         },
         [getUsers.fulfilled]: (state, action) => {
-            console.log(action.payload.data)
             state.loading = 'fulfilled';
-            if (state.page != action.payload.data.page) {
-                state.users = [...state.users, ...action.payload.data.users];
-                state.page = state.page + 1;
-                state.total_pages = action.payload.data.total_pagesF
-            }
+            state.users = [...state.users, ...action.payload.data.users];
+            state.page = state.page + 1;
+            state.total_pages = action.payload.data.total_pages;
         },
         [getUsers.rejected]: (state, action) => {
             state.loading = 'rejected';

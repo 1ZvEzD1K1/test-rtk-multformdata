@@ -1,11 +1,20 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import usersReducer from './users/users'
+import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import usersReducer from './slices/users'
+import positionsReducer from './slices/positions'
+import postuserReducer from './slices/postuser'
 
 const rootReducer = combineReducers({
-    users: usersReducer
+    users: usersReducer,
+    positions: positionsReducer,
+    postuser: postuserReducer
+})
+
+const customizedMiddleware = getDefaultMiddleware({
+    serializableCheck: false
 })
 
 
 export const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    middleware: customizedMiddleware
 })

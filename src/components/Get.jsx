@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../redux/users/users";
+import { getUsers } from "../redux/slices/users";
 import Loader from "./Loader";
 import Error from "./Error";
 import Card from "./Card";
@@ -13,7 +13,7 @@ const Get = () => {
   }, []);
 
   const { loading, error, users, page, total_pages } = useSelector((state) => state.users);
-  console.log(users);
+  //console.log(users);
   //console.log(page)
 
   if (loading == "loading") {
@@ -47,7 +47,7 @@ const Get = () => {
             className="get__button"
             value="Show more"
             onClick={() => dispatch(getUsers())}
-            disabled={page == total_pages - 1}
+            disabled={page == total_pages}
           />
         </div>
       </div>
