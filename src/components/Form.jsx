@@ -63,7 +63,7 @@ const Form = ({ positions }) => {
       <div className="form__file">
         <label htmlFor="inpfile">Upload</label>
         <div>{dataImg?.name ?? 'Upload your photo'}</div>
-        <input id="inpfile" type="file" placeholder="photo" onChange={(e)=>setDataImg(e.target.files[0])} />
+        <input id="inpfile" accept=".jpg, .jpeg" type="file" placeholder="photo" onChange={(e)=>setDataImg(e.target.files[0])} />
       </div>
       <div className="form__buttons">
         <input type="submit" value="Sign up" className="form__button" onClick={submitForm}/>
