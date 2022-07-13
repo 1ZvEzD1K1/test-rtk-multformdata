@@ -69,6 +69,14 @@ select:focus {
   color: rgba(0, 0, 0, 0.87);
 }
 
+.loader {
+  width: 48px;
+  height: 48px;
+  background: #00bdd3;
+  border-radius: 8px;
+  transform: rotate(-90deg);
+}
+
 //-------------------------------------------------------------
 .header {
   width: 100%;
@@ -331,6 +339,14 @@ select:focus {
             width: 100%;
             margin: 50px 0 0 0;
 
+            p {
+              font-weight: 400;
+              font-size: 12px;
+              line-height: 14px;
+              color: #7e7e7e;
+              margin: 4px 0 0 15px;
+            }
+
             input {
               font-weight: 400;
               font-size: 16px;
@@ -340,7 +356,6 @@ select:focus {
               border-radius: 4px;
               padding: 14px 0 14px 16px;
               background: none;
-              //min-height: 54px;
               width: 100%;
             }
           }
@@ -357,10 +372,67 @@ select:focus {
 
           &__radio {
             margin: 7px 0 0 0;
+            display: flex;
+            align-items: center;
+
+            input {
+              -webkit-transform: scale(1.5);
+              border: 1px solid #d0cfcf;
+
+              :checked {
+                border: 1px solid #00bdd3;
+              }
+            }
+
+            label {
+              margin: 0 0 0 12px;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              color: rgba(0, 0, 0, 0.87);
+            }
           }
 
           &__file {
             margin: 47px 0 0 0;
+            width: 100%;
+            height: 54px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            label {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              color: rgba(0, 0, 0, 0.87);
+              border: 1px solid rgba(0, 0, 0, 0.87);
+              border-radius: 4px 0px 0px 4px;
+              height: 100%;
+              padding: 14px 15px;
+            }
+
+            div {
+              border: 1px solid #d0cfcf;
+              border-radius: 4px;
+              height: 100%;
+              width: 100%;
+              padding: 14px 0 14px 16px;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              color: #7e7e7e;
+            }
+
+            input {
+              width: 100%;
+              width: 0.1px;
+              height: 0.1px;
+              opacity: 0;
+              overflow: hidden;
+              position: absolute;
+              z-index: -1;
+            }
           }
 
           &__buttons {

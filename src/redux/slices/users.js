@@ -8,6 +8,9 @@ export const getUsers = createAsyncThunk(
             const { page } = getState().users
             const res = await axios.get(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page + 1}&count=10`)
             //console.log("ful", res)
+            if (res.status != 200) {
+                throw new Error("Users error")
+            }
             return res
         } catch (error) {
             return rejectWithValue(error.message)

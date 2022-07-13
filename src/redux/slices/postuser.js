@@ -12,6 +12,10 @@ export const sendUserData = createAsyncThunk(
     }, { rejectWithValue }) => {
         try {
             const token = await axios.get(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
+
+            if (token.status != 200) {
+                throw new Error("Token error")
+            }
             //console.log(token.data.token)
             const data = new FormData();
             data.append("name", name);
@@ -32,11 +36,15 @@ export const sendUserData = createAsyncThunk(
                 method: "post",
                 url: "https://frontend-test-assignment-api.abz.agency/api/v1/users",
                 headers: {
-                  "Content-Type": "multipart/form-data",
-                  "Token": token.data.token,
+                    "Content-Type": "multipart/form-data",
+                    "Token": token.data.token,
                 },
                 data: data,
-              })
+            })
+
+            if (res.status != 200) {
+                throw new Error("Post error")
+            }
             return res.data
         } catch (error) {
             return rejectWithValue(error.message)

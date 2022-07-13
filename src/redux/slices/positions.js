@@ -7,6 +7,9 @@ export const getPosition = createAsyncThunk(
         try {
             const res = await axios.get(`https://frontend-test-assignment-api.abz.agency/api/v1/positions`)
             //console.log("ful", res.data)
+            if (res.status != 200) {
+                throw new Error("Position error")
+            }
             return res.data
         } catch (error) {
             return rejectWithValue(error.message)

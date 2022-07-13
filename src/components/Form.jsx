@@ -12,8 +12,8 @@ const Form = ({ positions }) => {
   const [phone, setPhone] = useState('')
   const [position_id, setPosition_id] = useState('')
   //console.log(position)
-  const [dataImg, setDataImg] = useState()
-  //console.log(photo)
+  const [dataImg, setDataImg] = useState(null)
+  //console.log(dataImg)
 
   const submitForm = (e) => {
     e.preventDefault()
@@ -37,7 +37,7 @@ const Form = ({ positions }) => {
     setEmail('')
     setPhone('')
     setPosition_id('')
-    setDataImg()
+    setDataImg(null)
   }
 
   //console.log(formdata)
@@ -52,6 +52,7 @@ const Form = ({ positions }) => {
       </div>
       <div className="form__number">
         <input type="text" placeholder="Phone" value={phone} onChange={(e)=>setPhone(e.target.value)} />
+        <p>+38 (XXX) XXX - XX - XX</p>
       </div>
       <div className="form__radio-container">
         <div className="radio__text">Select your position</div>
@@ -60,7 +61,9 @@ const Form = ({ positions }) => {
         })}
       </div>
       <div className="form__file">
-        <input type="file" placeholder="photo" onChange={(e)=>setDataImg(e.target.files[0])} />
+        <label htmlFor="inpfile">Upload</label>
+        <div>{dataImg?.name ?? 'Upload your photo'}</div>
+        <input id="inpfile" type="file" placeholder="photo" onChange={(e)=>setDataImg(e.target.files[0])} />
       </div>
       <div className="form__buttons">
         <input type="submit" value="Sign up" className="form__button" onClick={submitForm}/>
