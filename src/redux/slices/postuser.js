@@ -16,6 +16,7 @@ export const sendUserData = createAsyncThunk(
             if (token.status != 200) {
                 throw new Error("Token error")
             }
+            console.log(token)
             //console.log(token.data.token)
             const data = new FormData();
             data.append("name", name);
@@ -41,8 +42,9 @@ export const sendUserData = createAsyncThunk(
                 },
                 data: data,
             })
+            console.log(res)
 
-            if (res.status != 200) {
+            if (res.status != 201) {
                 throw new Error("Post error")
             }
             return res.data

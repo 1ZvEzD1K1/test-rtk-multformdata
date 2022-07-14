@@ -13,7 +13,8 @@ const Intro = () => {
           Development keeps evolving.
         </div>
         <div className="intro__buttons">
-          <input type="button" className="intro__button" value="Sign up" />
+          {/* <input type="button" className="intro__button" value="Sign up" /> */}
+          <a id='post' href="#postTitle" className="intro__button">Sign up</a>
         </div>
       </div>
     </section>

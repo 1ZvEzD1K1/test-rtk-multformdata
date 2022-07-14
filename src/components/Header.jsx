@@ -14,10 +14,12 @@ const Header = () => {
           </div>
           <div className="header__buttons buttons">
             <div className="button__container">
-              <input type="button" className="header__button" value="Users" />
+              {/* <input htmlFor='get' type="button" className="header__button" value="Users" /> */}
+              <a id='get' href="#getTitle" className="header__button">Users</a>
             </div>
             <div className="button__container">
-              <input type="button" className="header__button" value="Sign up" />
+              {/* <input type="button" className="header__button" value="Sign up" /> */}
+              <a id='post' href="#postTitle" className="header__button">Sign up</a>
             </div>
           </div>
         </div>

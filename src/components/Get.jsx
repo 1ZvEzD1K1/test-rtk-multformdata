@@ -12,22 +12,20 @@ const Get = () => {
     dispatch(getUsers());
   }, []);
 
-  const { loading, error, users, page, total_pages } = useSelector((state) => state.users);
+  const { loading, error, users, page, total_pages } = useSelector(
+    (state) => state.users
+  );
   //console.log(users);
   //console.log(page)
 
-  if (loading == "loading") {
-    return <Loader />;
-  }
-
-  if (error == "rejected") {
+  if (loading == "rejected") {
     return <Error error={error} />;
   }
 
   return (
     <section className="main__get get">
       <div className="get__container _container">
-        <div className="get__title global_title">Working with GET request</div>
+        <div id="getTitle" className="get__title global_title">Working with GET request</div>
         <div className="get__cards card">
           {users &&
             users.map((user) => (
@@ -41,15 +39,19 @@ const Get = () => {
               />
             ))}
         </div>
-        <div className="get__buttons">
-          <input
-            type="button"
-            className="get__button"
-            value="Show more"
-            onClick={() => dispatch(getUsers())}
-            disabled={page == total_pages}
-          />
-        </div>
+        {loading == "pending" ? (
+          <Loader />
+        ) : (
+          <div className="get__buttons">
+            <input
+              type="button"
+              className="get__button"
+              value="Show more"
+              onClick={() => dispatch(getUsers())}
+              disabled={page == total_pages}
+            />
+          </div>
+        )}
       </div>
     </section>
   );
